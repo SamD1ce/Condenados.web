@@ -8,6 +8,25 @@ body {
   overflow-x: hidden;
 }
 
+/* Animaciones */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 1s ease forwards;
+}
+
+/* Hero */
 .hero {
   position: relative;
   text-align: center;
@@ -40,12 +59,6 @@ body {
   width: 120px;
   margin-bottom: 20px;
   filter: drop-shadow(0 0 10px cyan);
-  animation: pulse 2s infinite alternate;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.05); }
 }
 
 h1 {
@@ -71,11 +84,17 @@ p {
   font-weight: bold;
   box-shadow: 0 0 10px #00bfff;
   transition: 0.3s;
+  animation: pulse 2s infinite alternate;
 }
 
 .btn-discord:hover, .btn-twitch:hover {
   transform: scale(1.1);
   box-shadow: 0 0 20px #0ff;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
 }
 
 .about, .twitch {
@@ -105,16 +124,4 @@ footer {
   color: #66f;
   font-size: 0.9em;
   border-top: 2px solid #00bfff;
-}
-
-/* Animaciones al aparecer */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
 }
