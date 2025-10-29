@@ -1,44 +1,197 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Condenados | Comunidad Discord</title>
-  <link rel="icon" type="image/png" href="images/Pepobragas.png">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo Condenados - Interactivo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@500&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  color: #aef;
+  overflow-x: hidden;
+  background: linear-gradient(to bottom, #0a0f29 0%, #020414 100%);
+}
+
+header.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero .background {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('https://wallpapers.com/images/featured/pepe-the-frog-fc0xi68rw21ini90.jpg') center/cover no-repeat;
+  z-index: 1;
+  transform: translateY(0);
+  transition: transform 0.2s linear;
+}
+
+.hero .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,40,0.3);
+  z-index: 2;
+}
+
+.hero .content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  animation: fadeInUp 1.5s ease forwards;
+}
+
+.peppo-logo {
+  width: 120px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 15px cyan);
+  animation: float 4s ease-in-out infinite;
+}
+
+h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2em;
+  text-shadow: 0 0 15px cyan, 0 0 25px #00f;
+}
+
+p {
+  font-size: 1.2em;
+  text-shadow: 0 0 5px #0ff;
+}
+
+.btn-discord, .btn-twitch {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: linear-gradient(90deg, #0088ff, #00ccff);
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 0 10px #00bfff;
+  transition: all 0.3s ease;
+}
+.btn-discord:hover, .btn-twitch:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #0ff;
+}
+
+section {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+  background: rgba(0,0,60,0.2);
+  border-radius: 12px;
+  margin-bottom: 80px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h2 {
+  color: #00ccff;
+  text-shadow: 0 0 10px #0ff;
+  margin-bottom: 20px;
+}
+
+.clips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+iframe {
+  width: 360px;
+  height: 220px;
+  border-radius: 10px;
+  border: 2px solid #00ccff;
+  transition: all 0.3s ease;
+}
+iframe:hover {
+  transform: scale(1.05);
+  border-color: #0ff;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #01021a;
+  color: #66f;
+  font-size: 0.9em;
+  border-top: 2px solid #00bfff;
+}
+
+/* Animaciones */
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+</style>
 </head>
 <body>
-  <header class="hero">
-    <div class="overlay"></div>
-    <div class="content">
-      <img src="images/Pepobragas.png" alt="Pepobragas" class="peppo-logo">
-      <h1>🌀 Condenados</h1>
-      <p>La comunidad más retro del inframundo digital 💾🐸</p>
-      <a href="https://discord.gg/ef9BxmrE" class="btn-discord" target="_blank">💬 Únete al Discord</a>
-    </div>
-  </header>
 
-  <section class="about">
-    <h2>🌌 Sobre nosotros</h2>
-    <p>
-      Bienvenido a <strong>Condenados</strong>, un refugio para los gamers, streamers y discapacitados.  
-      Aquí celebramos el caos, los memes y la buena vibra — todo con el toque inconfundible de Peppo 🐸.
-    </p>
-  </section>
+<header class="hero">
+  <div class="background"></div>
+  <div class="overlay"></div>
+  <div class="content">
+    <img src="https://i.imgur.com/7w0vY2U.png" alt="Logo" class="peppo-logo">
+    <h1>🌀 Condenados</h1>
+    <p>La comunidad más retro del inframundo digital 💾🐸</p>
+    <a href="#" class="btn-discord">💬 Únete al Discord</a>
+  </div>
+</header>
 
-  <section class="twitch">
-    <h2>🎥 Clips de SamD1ce</h2>
-    <div class="clips">
-      <!-- Clips embebidos (puedes cambiar los links de los clips de Twitch) -->
-      <iframe src="https://clips.twitch.tv/embed?clip=MagnificentArtsyBaguetteKippa-QuFfzpuCXjOTmlrA&parent=samd1ce.github.io" frameborder="0" allowfullscreen="true" scrolling="no" height="300" width="400"></iframe>
-      <iframe src="https://clips.twitch.tv/embed?clip=ExcitedSincereSardineJebaited-jOXeCCQEF1UcFBB7&parent=samd1ce.github.io" frameborder="0" allowfullscreen="true" scrolling="no" height="300" width="400"></iframe>
-      <iframe src="https://clips.twitch.tv/embed?clip=HappyEagerDugongRuleFive-OyLN2_UjN7ux55aN&parent=samd1ce.github.io" frameborder="0" allowfullscreen="true" scrolling="no" height="300" width="400"></iframe>
-    </div>
-    <a href="https://www.twitch.tv/samd1ce" class="btn-twitch" target="_blank">🔴 Ver más en Twitch</a>
-  </section>
+<section class="about reveal">
+  <h2>🌌 Sobre nosotros</h2>
+  <p>Bienvenido a <strong>Condenados</strong>, un refugio para gamers, streamers y amantes de los memes.</p>
+</section>
 
-  <footer>
-    <p>© 2025 Condenados | Diseñado con 💙 por la comunidad.</p>
-  </footer>
+<section class="twitch reveal">
+  <h2>🎥 Clips de SamD1ce</h2>
+  <div class="clips">
+    <iframe src="https://clips.twitch.tv/embed?clip=MagnificentArtsyBaguetteKippa-QuFfzpuCXjOTmlrA&parent=localhost" frameborder="0" allowfullscreen scrolling="no"></iframe>
+    <iframe src="https://clips.twitch.tv/embed?clip=ExcitedSincereSardineJebaited-jOXeCCQEF1UcFBB7&parent=localhost" frameborder="0" allowfullscreen scrolling="no"></iframe>
+  </div>
+  <a href="#" class="btn-twitch">🔴 Ver más en Twitch</a>
+</section>
+
+<footer>
+  <p>© 2025 Condenados | Diseñado con 💙 por la comunidad.</p>
+</footer>
+
+<script>
+// Parallax header
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  document.querySelector('.hero .background').style.transform = `translateY(${scrollY * 0.3}px)`;
+
+  // Secciones aparecer al hacer scroll
+  document.querySelectorAll('.reveal').forEach(sec => {
+    const top = sec.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) sec.classList.add('active');
+  });
+});
+</script>
 </body>
 </html>
+
+
