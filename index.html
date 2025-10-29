@@ -10,7 +10,7 @@
 <body>
   <header class="hero reveal">
     <div class="overlay"></div>
-    <div class="content reveal">
+    <div class="content">
       <img src="images/Pepobragas.png" alt="Pepobragas" class="peppo-logo reveal">
       <h1 class="reveal">🌀 Condenados</h1>
       <p class="reveal">La comunidad más retro del inframundo digital 💾🐸</p>
@@ -19,19 +19,19 @@
   </header>
 
   <section class="about reveal">
-    <h2 class="reveal">🌌 Sobre nosotros</h2>
-    <p class="reveal">
+    <h2>🌌 Sobre nosotros</h2>
+    <p>
       Bienvenido a <strong>Condenados</strong>, un refugio para los gamers, streamers y discapacitados.  
       Aquí celebramos el caos, los memes y la buena vibra — todo con el toque inconfundible de Peppo 🐸.
     </p>
   </section>
 
   <section class="twitch reveal">
-    <h2 class="reveal">🎥 Clips de Condenados</h2>
+    <h2>🎥 Clips de SamD1ce</h2>
     <div class="clips">
-      <iframe src="https://clips.twitch.tv/embed?clip=MagnificentArtsyBaguetteKippa-QuFfzpuCXjOTmlrA&parent=samd1ce.github.io" frameborder="0" allowfullscreen scrolling="no" class="reveal" height="300" width="400"></iframe>
-      <iframe src="https://clips.twitch.tv/embed?clip=ExcitedSincereSardineJebaited-jOXeCCQEF1UcFBB7&parent=samd1ce.github.io" frameborder="0" allowfullscreen scrolling="no" class="reveal" height="300" width="400"></iframe>
-      <iframe src="https://clips.twitch.tv/embed?clip=HappyEagerDugongRuleFive-OyLN2_UjN7ux55aN&parent=samd1ce.github.io" frameborder="0" allowfullscreen scrolling="no" class="reveal" height="300" width="400"></iframe>
+      <iframe src="https://clips.twitch.tv/embed?clip=MagnificentArtsyBaguetteKippa-QuFfzpuCXjOTmlrA&parent=samd1ce.github.io" frameborder="0" allowfullscreen scrolling="no" class="reveal"></iframe>
+      <iframe src="https://clips.twitch.tv/embed?clip=ExcitedSincereSardineJebaited-jOXeCCQEF1UcFBB7&parent=samd1ce.github.io" frameborder="0" allowfullscreen scrolling="no" class="reveal"></iframe>
+      <iframe src="https://clips.twitch.tv/embed?clip=HappyEagerDugongRuleFive-OyLN2_UjN7ux55aN&parent=samd1ce.github.io" frameborder="0" allowfullscreen scrolling="no" class="reveal"></iframe>
     </div>
     <a href="https://www.twitch.tv/samd1ce" class="btn-twitch reveal" target="_blank">🔴 Ver más en Twitch</a>
   </section>
@@ -40,7 +40,21 @@
     <p>© 2025 Condenados | Diseñado con 💙 por la comunidad.</p>
   </footer>
 
-  <script src="scripts.js"></script>
+  <!-- Scroll reveal JS -->
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+
+    const revealOnScroll = () => {
+      reveals.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if(top < window.innerHeight - 50) {
+          el.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
 </body>
 </html>
-
