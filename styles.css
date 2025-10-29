@@ -125,3 +125,33 @@ footer {
   font-size: 0.9em;
   border-top: 2px solid #00bfff;
 }
+
+.gallery {
+  padding: 60px 20px;
+  text-align: center;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.images img {
+  width: 220px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #00ccff50;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.images img:hover {
+  transform: scale(1.05) rotate(-1deg);
+  box-shadow: 0 0 25px #00ccff80;
+}
+
+
