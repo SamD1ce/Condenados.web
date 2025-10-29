@@ -3,54 +3,60 @@
 body {
   margin: 0;
   font-family: 'Orbitron', sans-serif;
-  background: radial-gradient(circle at top, #0a0f29 0%, #020414 100%);
   color: #aef;
   overflow-x: hidden;
+  background: linear-gradient(to bottom, #0a0f29 0%, #020414 100%);
 }
 
-.hero {
+header.hero {
   position: relative;
-  text-align: center;
   height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
-  background: url('https://wallpapers.com/images/featured/pepe-the-frog-fc0xi68rw21ini90.jpg') center/cover no-repeat;
-  color: #aef;
+  align-items: center;
   overflow: hidden;
 }
 
-.overlay {
+.hero .background {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,40,0.6);
-  backdrop-filter: blur(3px);
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('https://wallpapers.com/images/featured/pepe-the-frog-fc0xi68rw21ini90.jpg') center/cover no-repeat;
+  z-index: 1;
+  transform: translateY(0);
+  transition: transform 0.2s linear;
 }
 
-.content {
-  position: relative;
+.hero .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,40,0.3);
   z-index: 2;
+}
+
+.hero .content {
+  position: relative;
+  z-index: 3;
   text-align: center;
+  animation: fadeInUp 1.5s ease forwards;
 }
 
 .peppo-logo {
   width: 120px;
   margin-bottom: 20px;
-  filter: drop-shadow(0 0 10px cyan);
+  filter: drop-shadow(0 0 15px cyan);
+  animation: float 4s ease-in-out infinite;
 }
 
 h1 {
   font-family: 'Press Start 2P', cursive;
   font-size: 2em;
-  text-shadow: 0 0 10px cyan, 0 0 20px #00f;
+  text-shadow: 0 0 15px cyan, 0 0 25px #00f;
 }
 
 p {
   font-size: 1.2em;
-  color: #bdf;
   text-shadow: 0 0 5px #0ff;
 }
 
@@ -64,19 +70,29 @@ p {
   text-decoration: none;
   font-weight: bold;
   box-shadow: 0 0 10px #00bfff;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
-
 .btn-discord:hover, .btn-twitch:hover {
   transform: scale(1.1);
   box-shadow: 0 0 20px #0ff;
 }
 
-.about, .twitch {
-  padding: 60px 20px;
-  text-align: center;
+section {
+  padding: 80px 20px;
   max-width: 900px;
   margin: auto;
+  text-align: center;
+  background: rgba(0,0,60,0.2);
+  border-radius: 12px;
+  margin-bottom: 80px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+section.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 h2 {
@@ -92,6 +108,18 @@ h2 {
   gap: 15px;
 }
 
+iframe {
+  width: 360px;
+  height: 220px;
+  border-radius: 10px;
+  border: 2px solid #00ccff;
+  transition: all 0.3s ease;
+}
+iframe:hover {
+  transform: scale(1.05);
+  border-color: #0ff;
+}
+
 footer {
   text-align: center;
   padding: 30px;
@@ -99,4 +127,13 @@ footer {
   color: #66f;
   font-size: 0.9em;
   border-top: 2px solid #00bfff;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
