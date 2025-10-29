@@ -3,9 +3,9 @@
 body {
   margin: 0;
   font-family: 'Orbitron', sans-serif;
-  color: #aef;
+  color: #000;
   overflow-x: hidden;
-  background: linear-gradient(to bottom, #0a0f29 0%, #020414 100%);
+  background: #f0f4f8;
 }
 
 header.hero {
@@ -31,7 +31,7 @@ header.hero {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0,0,40,0.3);
+  background: rgba(255,255,255,0.3);
   z-index: 2;
 }
 
@@ -39,25 +39,21 @@ header.hero {
   position: relative;
   z-index: 3;
   text-align: center;
-  animation: fadeInUp 1.5s ease forwards;
 }
 
 .peppo-logo {
   width: 120px;
   margin-bottom: 20px;
-  filter: drop-shadow(0 0 15px cyan);
   animation: float 4s ease-in-out infinite;
 }
 
 h1 {
   font-family: 'Press Start 2P', cursive;
   font-size: 2em;
-  text-shadow: 0 0 15px cyan, 0 0 25px #00f;
 }
 
 p {
   font-size: 1.2em;
-  text-shadow: 0 0 5px #0ff;
 }
 
 .btn-discord, .btn-twitch {
@@ -69,12 +65,10 @@ p {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  box-shadow: 0 0 10px #00bfff;
   transition: all 0.3s ease;
 }
 .btn-discord:hover, .btn-twitch:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 20px #0ff;
+  transform: scale(1.05);
 }
 
 section {
@@ -82,12 +76,11 @@ section {
   max-width: 900px;
   margin: auto;
   text-align: center;
-  background: rgba(0,0,60,0.2);
   border-radius: 12px;
   margin-bottom: 80px;
   opacity: 0;
   transform: translateY(50px);
-  transition: transform 0.8s ease, opacity 0.8s ease;
+  transition: all 1s ease;
 }
 
 section.active {
@@ -96,8 +89,6 @@ section.active {
 }
 
 h2 {
-  color: #00ccff;
-  text-shadow: 0 0 10px #0ff;
   margin-bottom: 20px;
 }
 
@@ -112,28 +103,34 @@ iframe {
   width: 360px;
   height: 220px;
   border-radius: 10px;
-  border: 2px solid #00ccff;
+  border: 2px solid #0088ff;
   transition: all 0.3s ease;
 }
 iframe:hover {
   transform: scale(1.05);
-  border-color: #0ff;
 }
 
 footer {
   text-align: center;
   padding: 30px;
-  background: #01021a;
-  color: #66f;
+  background: #f0f4f8;
+  color: #000;
   font-size: 0.9em;
-  border-top: 2px solid #00bfff;
+  border-top: 2px solid #0088ff;
 }
 
+/* Animaciones */
 @keyframes float {
   0%,100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
 }
-@keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
